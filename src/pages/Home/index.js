@@ -4,7 +4,7 @@ import React from "react";
 const Home = () => {
   return (
     <IonPage>
-      <IonContent>home</IonContent>
+      <IonContent className="ion-padding">home</IonContent>
     </IonPage>
   );
 };

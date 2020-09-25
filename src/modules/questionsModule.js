@@ -9,34 +9,32 @@ const questionsModule = createSlice({
   reducers: {
     addQuestion: (state, action) => {
       const question = {
-        questionTitle: action.payload,
-        question: "",
+        questionTitle: action.payload.title,
+        question: action.payload.content,
         answers: [],
         createdAt: new Date().getTime(),
-        status: "unanswered",
       };
       state.push(question);
-      saveState(state);
-    },
-    sendQuestion: (state, action) => {
-      state[action.payload["questionIndex"]]["question"] =
-        action.payload["question"];
       saveState(state);
     },
     sendAnswer: (state, action) => {
       state[action.payload["questionIndex"]]["answers"].push(
         action.payload["answer"]
       );
-      state[action.payload["questionIndex"]]["status"] = "answered";
       saveState(state);
     },
     deleteQuestion: (state, action) => {
       state.splice(action.payload, 1);
       saveState(state);
     },
-    editQuesiton: (state, action) => {
+    editQuesitonContent: (state, action) => {
       state[action.payload["questionIndex"]]["question"] =
         action.payload["question"];
+      saveState(state);
+    },
+    editQuesitonTitle: (state, action) => {
+      state[action.payload["questionIndex"]]["questionTitle"] =
+        action.payload["questionTitle"];
       saveState(state);
     },
     deleteAnswer: (state, action) => {
@@ -44,13 +42,6 @@ const questionsModule = createSlice({
         action.payload["answerIndex"],
         1
       );
-      if (state[action.payload["questionIndex"]]["answers"].length === 0) {
-        state[action.payload["questionIndex"]]["status"] = "unanswered";
-      }
-      saveState(state);
-    },
-    toggleStatus: (state, action) => {
-      state[action.payload["questionIndex"]]["status"] = action.payload["to"];
       saveState(state);
     },
   },
