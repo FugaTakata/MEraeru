@@ -2,7 +2,7 @@ import React from "react";
 import Calendar from "react-github-contribution-calendar";
 import { formatDate } from "../../dateFormatter";
 
-import Legend from "../../resource/legend.png";
+import Legend from "../../resource/legend.svg";
 
 const ContributionCalendar = ({ questions }) => {
   const values = {};
