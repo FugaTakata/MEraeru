@@ -1,5 +1,4 @@
 import {
-  IonActionSheet,
   IonBackButton,
   IonButton,
   IonButtons,
@@ -25,13 +24,10 @@ import { questionsSelector } from "../../selectors/questionSelecctor";
 import questionsModule from "../../modules/questionsModule";
 import { useParams } from "react-router";
 
-import { close, trash, share, caretForwardCircle, heart } from "ionicons/icons";
-
 const Talk = () => {
   const params = useParams();
   const index = +params.id;
   const [answer, setAnswer] = useState("");
-  const [showActionSheet, setShowActionSheet] = useState(false);
   const dispatch = useDispatch();
   const state = useSelector(questionsSelector)[index];
 

@@ -1,13 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Redirect, Route } from "react-router-dom";
-import {
-  IonApp,
-  IonLabel,
-  IonRouterOutlet,
-  IonTabBar,
-  IonTabButton,
-  IonTabs,
-} from "@ionic/react";
+import { IonApp, IonRouterOutlet } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
 
 import Home from "./pages/Home";
@@ -35,10 +28,6 @@ import "@ionic/react/css/display.css";
 import "./theme/variables.css";
 
 const App = () => {
-  useEffect(() => {
-    // localStorage.clear();
-  }, []);
-
   return (
     <IonApp>
       <IonReactRouter>
