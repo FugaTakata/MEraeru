@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import CreateQuestion from "./pages/CreateQuestion";
 import EditQuestion from "./pages/EditQuestion";
 import Talk from "./pages/Talk";
+import About from "./pages/About";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -45,6 +46,7 @@ const App = () => {
             exact={true}
           />
           <Route path="/home" component={Home} exact={true} />
+          <Route path="/about" component={About} exact={true} />
         </IonRouterOutlet>
       </IonReactRouter>
     </IonApp>

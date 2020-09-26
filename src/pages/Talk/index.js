@@ -43,10 +43,15 @@ const Talk = () => {
           <IonButtons slot="start">
             <IonBackButton text="戻る" defaultHref="/" />
           </IonButtons>
-          <IonTitle>{state.title}</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding">
+        <IonCard>
+          <IonCardHeader>
+            <IonCardTitle>タイトル</IonCardTitle>
+          </IonCardHeader>
+          <IonCardContent>{state.title}</IonCardContent>
+        </IonCard>
         <IonCard>
           <IonCardHeader>
             <IonCardTitle>質問</IonCardTitle>
@@ -89,8 +94,8 @@ const Talk = () => {
                 <IonLabel position="floating">回答を入力</IonLabel>
                 <IonTextarea
                   type="text"
-                  autoGrow
                   value={answer}
+                  rows={8}
                   onIonChange={(e) => setAnswer(e.target.value)}
                 />
                 <IonButton

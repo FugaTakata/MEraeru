@@ -1,4 +1,6 @@
 :root {
+  --ion-text-color: #344240;
+
   --ion-color-primary: #00897b;
   --ion-color-primary-rgb: 0, 137, 123;
   --ion-color-primary-contrast: #ffffff;

@@ -16,6 +16,9 @@ import {
   IonCardContent,
   IonSearchbar,
   IonText,
+  IonButton,
+  IonButtons,
+  IonIcon,
 } from "@ionic/react";
 import React, { useState } from "react";
 
@@ -27,6 +30,8 @@ import questionsModule from "../../modules/questionsModule";
 
 import CreateQuestionButton from "../../components/CreateQuestionButton";
 import ContributionCalendar from "../../components/ContributionCalendar";
+
+import { informationCircleOutline } from "ionicons/icons";
 
 const Home = () => {
   const history = useHistory();
@@ -141,6 +146,11 @@ const Home = () => {
           <IonTitle color="primary">
             <h1>miraeru</h1>
           </IonTitle>
+          <IonButtons slot="end">
+            <IonButton routerLink="/about" color="primary">
+              <IonIcon icon={informationCircleOutline} color="primary" />
+            </IonButton>
+          </IonButtons>
         </IonToolbar>
       </IonHeader>
       <IonContent>

@@ -39,7 +39,7 @@ const EditQuestion = () => {
   const dispatch = useDispatch();
 
   const editQuestion = (action) => {
-    dispatch(questionsModule.actions.addQuestion(action));
+    dispatch(questionsModule.actions.editQuesiton(action));
   };
 
   return (
@@ -57,7 +57,7 @@ const EditQuestion = () => {
           onSubmit={(e) => {
             e.preventDefault();
             editQuestion({ title, question, tags, index });
-            history.push(`/talk/${index}`);
+            history.push("/home");
           }}
         >
           <IonList>
@@ -93,6 +93,7 @@ const EditQuestion = () => {
                 slot="end"
                 type="button"
                 disabled={!tag}
+                style={{ margin: "auto 0" }}
                 onClick={(e) => {
                   e.preventDefault();
                   if (!tags.includes(tag)) {
