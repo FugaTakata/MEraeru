@@ -15,6 +15,7 @@ import {
   IonCard,
   IonCardContent,
   IonSearchbar,
+  IonText,
 } from "@ionic/react";
 import React, { useState } from "react";
 
@@ -71,7 +72,11 @@ const Home = () => {
   const QuestionList = () => {
     return (
       <IonList>
-        <IonListHeader>質問一覧</IonListHeader>
+        <IonListHeader>
+          <IonText color="primary">
+            <h2>質問一覧</h2>
+          </IonText>
+        </IonListHeader>
         {questions
           .filter(
             ({ title, tags }) =>
@@ -133,7 +138,9 @@ const Home = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>miraeru</IonTitle>
+          <IonTitle color="primary">
+            <h1>miraeru</h1>
+          </IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>

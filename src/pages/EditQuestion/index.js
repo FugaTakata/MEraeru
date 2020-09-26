@@ -15,6 +15,7 @@ import {
   IonBackButton,
   IonChip,
   IonIcon,
+  IonText,
 } from "@ionic/react";
 import React, { useState } from "react";
 
@@ -48,7 +49,7 @@ const EditQuestion = () => {
           <IonButtons slot="start">
             <IonBackButton text="戻る" defaultHref="/home" />
           </IonButtons>
-          <IonTitle>質問の編集</IonTitle>
+          <IonTitle color="primary">質問の編集</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding">
@@ -61,7 +62,9 @@ const EditQuestion = () => {
         >
           <IonList>
             <IonListHeader>
-              <p>質問を作成しましょう。</p>
+              <IonText color="primary">
+                <p>編集が可能です。</p>
+              </IonText>
             </IonListHeader>
             <IonItem>
               <IonLabel position="floating">タイトル</IonLabel>

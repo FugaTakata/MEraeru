@@ -46,7 +46,7 @@ const CreateQuestion = () => {
           <IonButtons slot="start">
             <IonBackButton text="戻る" defaultHref="/home" />
           </IonButtons>
-          <IonTitle>質問する</IonTitle>
+          <IonTitle color="primary">質問する</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding">

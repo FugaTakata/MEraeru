@@ -28,6 +28,7 @@ const Talk = () => {
   const params = useParams();
   const index = +params.id;
   const [answer, setAnswer] = useState("");
+
   const dispatch = useDispatch();
   const state = useSelector(questionsSelector)[index];
 
@@ -77,30 +78,32 @@ const Talk = () => {
       </IonContent>
       {!state.answer && (
         <IonFooter>
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              sendAnswer({ index, answer });
-            }}
-          >
-            <IonItem>
-              <IonLabel position="floating">回答を入力</IonLabel>
-              <IonTextarea
-                type="text"
-                autoGrow
-                value={answer}
-                onIonChange={(e) => setAnswer(e.target.value)}
-              />
-              <IonButton
-                type="submit"
-                slot="end"
-                style={{ margin: "auto 0" }}
-                disabled={!answer}
-              >
-                回答
-              </IonButton>
-            </IonItem>
-          </form>
+          <IonToolbar>
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                sendAnswer({ index, answer });
+              }}
+            >
+              <IonItem>
+                <IonLabel position="floating">回答を入力</IonLabel>
+                <IonTextarea
+                  type="text"
+                  autoGrow
+                  value={answer}
+                  onIonChange={(e) => setAnswer(e.target.value)}
+                />
+                <IonButton
+                  type="submit"
+                  slot="end"
+                  style={{ margin: "auto 0" }}
+                  disabled={!answer}
+                >
+                  回答
+                </IonButton>
+              </IonItem>
+            </form>
+          </IonToolbar>
         </IonFooter>
       )}
     </IonPage>
