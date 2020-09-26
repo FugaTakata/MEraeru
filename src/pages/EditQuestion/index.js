@@ -55,7 +55,6 @@ const EditQuestion = () => {
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            console.log("submit");
             editQuestion({ title, question, tags, index });
             history.push(`/talk/${index}`);
           }}

@@ -6,6 +6,7 @@ export const loadState = () => {
     }
     return JSON.parse(serializedState);
   } catch (err) {
+    alert("データの読み込みに失敗しました。");
     return [];
   }
 };
@@ -15,6 +16,6 @@ export const saveState = (state) => {
     const serializedState = JSON.stringify(state);
     localStorage.setItem("questions", serializedState);
   } catch {
-    console.log("save failed");
+    alert("保存に失敗しました。");
   }
 };

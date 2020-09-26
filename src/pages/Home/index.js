@@ -14,6 +14,7 @@ import {
   IonToolbar,
   IonCard,
   IonCardContent,
+  IonSearchbar,
 } from "@ionic/react";
 import React, { useState } from "react";
 
@@ -32,6 +33,7 @@ const Home = () => {
   const dispatch = useDispatch();
   const [showAlert, setShowAlert] = useState(false);
   const [index, setIndex] = useState(null);
+  const [search, setSearch] = useState("");
 
   const deleteQuesttion = (action) => {
     dispatch(questionsModule.actions.deleteQuestion(action));
@@ -69,53 +71,59 @@ const Home = () => {
     return (
       <IonList>
         <IonListHeader>質問一覧</IonListHeader>
-        {questions.map(({ title, tags, answer }, key) => {
-          return (
-            <IonItemSliding key={key}>
-              <IonItem lines="none">
-                <IonCard
-                  routerLink={`/talk/${key}`}
-                  type="button"
-                  style={{ width: "100vw" }}
+        {questions
+          .filter(
+            ({ title, tags }) =>
+              title.includes(search) ||
+              tags.some((tag) => tag.includes(search)) ||
+              search === ""
+          )
+          .map(({ title, tags, answer }, key) => {
+            return (
+              <IonItemSliding key={key}>
+                <IonItem lines="none">
+                  <IonCard
+                    routerLink={`/talk/${key}`}
+                    type="button"
+                    style={{ width: "100vw" }}
+                  >
+                    <IonCardContent>
+                      <h1>{title}</h1>
+                      {answer ? (
+                        <IonChip color="tertiary">回答済み</IonChip>
+                      ) : (
+                        <IonChip color="danger">未回答</IonChip>
+                      )}
+                      {tags && tags.length !== 0
+                        ? tags.map((tag) => (
+                            <IonChip color="primary" key={tag}>
+                              {tag}
+                            </IonChip>
+                          ))
+                        : null}
+                    </IonCardContent>
+                  </IonCard>
+                </IonItem>
+                <IonItemOptions
+                  side="start"
+                  onIonSwipe={() => history.push(`/edit-question/${key}`)}
                 >
-                  <IonCardContent>
-                    <h1>{title}</h1>
-                    {answer ? (
-                      <IonChip color="tertiary">回答済み</IonChip>
-                    ) : (
-                      <IonChip color="danger">未回答</IonChip>
-                    )}
-                    {tags && tags.length !== 0
-                      ? tags.map((tag) => (
-                          <IonChip color="primary" key={tag}>
-                            {tag}
-                          </IonChip>
-                        ))
-                      : null}
-                  </IonCardContent>
-                </IonCard>
-              </IonItem>
-              <IonItemOptions
-                side="start"
-                onIonSwipe={() => history.push(`/edit-question/${key}`)}
-              >
-                <IonItemOption expandable>編集</IonItemOption>
-              </IonItemOptions>
-              <IonItemOptions
-                side="end"
-                onIonSwipe={() => {
-                  setIndex(key);
-                  console.log(key, index);
-                  setShowAlert(true);
-                }}
-              >
-                <IonItemOption color="danger" expandable>
-                  削除
-                </IonItemOption>
-              </IonItemOptions>
-            </IonItemSliding>
-          );
-        })}
+                  <IonItemOption expandable>編集</IonItemOption>
+                </IonItemOptions>
+                <IonItemOptions
+                  side="end"
+                  onIonSwipe={() => {
+                    setIndex(key);
+                    setShowAlert(true);
+                  }}
+                >
+                  <IonItemOption color="danger" expandable>
+                    削除
+                  </IonItemOption>
+                </IonItemOptions>
+              </IonItemSliding>
+            );
+          })}
       </IonList>
     );
   };
@@ -132,6 +140,11 @@ const Home = () => {
         <div className="ion-padding">
           <ContributionCalendar questions={questions} />
         </div>
+        <IonSearchbar
+          placeholder="タグやタイトルを検索"
+          value={search}
+          onIonChange={(e) => setSearch(e.target.value)}
+        />
         <QuestionList />
         <Alert />
       </IonContent>

@@ -22,7 +22,6 @@ const questionsModule = createSlice({
     },
     sendAnswer: (state, action) => {
       const { answer, index } = action.payload;
-      console.log();
       state[index]["answer"] = answer;
       saveState(state);
     },
