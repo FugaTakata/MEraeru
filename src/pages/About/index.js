@@ -115,9 +115,9 @@ const About = () => {
         <p>
           バグや、感想は
           <p>
-            Twitter<IonText color="primary">@maple__f</IonText>
+            Twitter: <IonText color="primary">@maple__f</IonText>
           </p>
-          (_は2つ)にご連絡いただけると幸いです。
+          (_は2つ)にご連絡いただけると幸いです。返せなかったらごめんね。
         </p>
       </IonContent>
       <IonFooter>
