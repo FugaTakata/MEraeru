@@ -32,6 +32,7 @@ import CreateQuestionButton from "../../components/CreateQuestionButton";
 import ContributionCalendar from "../../components/ContributionCalendar";
 
 import { informationCircleOutline } from "ionicons/icons";
+import Logo from "../../resource/logo.png";
 
 const Home = () => {
   const history = useHistory();
@@ -143,6 +144,7 @@ const Home = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
+          <img src={Logo} slot="start" alt="MEraeruのロゴ" height="50vh" />
           <IonTitle color="primary">
             <h1>MEraeru</h1>
           </IonTitle>
