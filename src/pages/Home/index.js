@@ -144,7 +144,7 @@ const Home = () => {
       <IonHeader>
         <IonToolbar>
           <IonTitle color="primary">
-            <h1>miraeru</h1>
+            <h1>MEraeru</h1>
           </IonTitle>
           <IonButtons slot="end">
             <IonButton routerLink="/about" color="primary">

@@ -1,6 +1,6 @@
 {
-  "appId": "io.ionic.starter",
-  "appName": "miraeru",
+  "appId": "com.f-maple.meraeru",
+  "appName": "MEraeru",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "build",

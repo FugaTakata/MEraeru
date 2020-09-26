@@ -16,7 +16,9 @@ const About = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>miraeruについて</IonTitle>
+          <IonTitle>
+            <IonText color="primary">MEraeruについて</IonText>
+          </IonTitle>
           <IonButtons slot="start">
             <IonBackButton text="戻る" defaultHref="/home" />
           </IonButtons>
@@ -28,11 +30,11 @@ const About = () => {
           <IonText color="primary">える</IonText>学習補助アプリ
         </p>
         <h1 className="ion-text-center">
-          <IonText color="primary">miraeru</IonText>
+          <IonText color="primary">MEraeru</IonText>
         </h1>
         <div className="ion-padding-vertical" />
         <h2>
-          <IonText color="primary">miraeru</IonText>の使い方
+          <IonText color="primary">MEraeru</IonText>の使い方
         </h2>
         <h3 className="ion-padding-top">
           <IonText color="secondary">質問の作成</IonText>
@@ -66,7 +68,7 @@ const About = () => {
 
         <div className="ion-padding-vertical" />
         <h2>
-          <IonText color="primary">miraeru</IonText>で力をつける方法
+          <IonText color="primary">MEraeru</IonText>で力をつける方法
         </h2>
         <h3 className="ion-padding-top">
           <IonText color="secondary">質問はわかりやすく</IonText>
