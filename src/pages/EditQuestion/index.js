@@ -34,6 +34,7 @@ const EditQuestion = () => {
   const state = useSelector(questionsSelector)[+params.id];
   const [title, setTitle] = useState(state.title);
   const [question, setQuestion] = useState(state.question);
+  const [answer, setAnswer] = useState(state.answer);
   const [tags, setTags] = useState(JSON.parse(JSON.stringify(state.tags)));
   const [tag, setTag] = useState("");
   const dispatch = useDispatch();
@@ -56,7 +57,7 @@ const EditQuestion = () => {
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            editQuestion({ title, question, tags, index });
+            editQuestion({ title, question, tags, index, answer });
             history.push("/home");
           }}
         >
@@ -82,6 +83,16 @@ const EditQuestion = () => {
                 onIonChange={(e) => setQuestion(e.target.value)}
               />
             </IonItem>
+            {answer && (
+              <IonItem>
+                <IonLabel position="floating">回答</IonLabel>
+                <IonTextarea
+                  rows={8}
+                  value={answer}
+                  onIonChange={(e) => setAnswer(e.target.value)}
+                />
+              </IonItem>
+            )}
             <IonItem>
               <IonLabel position="floating">タグ</IonLabel>
               <IonInput
@@ -131,7 +142,8 @@ const EditQuestion = () => {
             disabled={
               state.title === title &&
               state.question === question &&
-              JSON.stringify(state.tags) === JSON.stringify(tags)
+              JSON.stringify(state.tags) === JSON.stringify(tags) &&
+              state.answer === answer
             }
           >
             編集

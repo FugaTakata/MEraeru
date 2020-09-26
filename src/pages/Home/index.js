@@ -101,7 +101,7 @@ const Home = () => {
                     <IonCardContent>
                       <h1>{title}</h1>
                       {answer ? (
-                        <IonChip color="tertiary">回答済み</IonChip>
+                        <IonChip color="secondary">回答済み</IonChip>
                       ) : (
                         <IonChip color="danger">未回答</IonChip>
                       )}

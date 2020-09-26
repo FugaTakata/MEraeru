@@ -43,6 +43,7 @@ const Talk = () => {
           <IonButtons slot="start">
             <IonBackButton text="戻る" defaultHref="/" />
           </IonButtons>
+          <IonTitle color="primary">質問詳細</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding">
