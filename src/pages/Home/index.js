@@ -58,6 +58,7 @@ const Home = () => {
           },
           {
             text: "削除する",
+            cssClass: "delete__button",
             handler: () => {
               deleteQuesttion({ index });
             },
@@ -137,9 +138,7 @@ const Home = () => {
       </IonHeader>
       <IonContent>
         <CreateQuestionButton />
-        <div className="ion-padding">
-          <ContributionCalendar questions={questions} />
-        </div>
+        <ContributionCalendar questions={questions} />
         <IonSearchbar
           placeholder="タグやタイトルを検索"
           value={search}

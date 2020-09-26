@@ -3,7 +3,7 @@ import React from "react";
 
 const CreateQuestion = () => {
   return (
-    <IonFab vertical="bottom" horizontal="end" slot="fixed">
+    <IonFab vertical="center" horizontal="end" slot="fixed">
       <IonFabButton routerLink="/create-question">Q</IonFabButton>
     </IonFab>
   );

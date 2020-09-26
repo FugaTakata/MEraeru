@@ -2,6 +2,8 @@ import React from "react";
 import Calendar from "react-github-contribution-calendar";
 import { formatDate } from "../../dateFormatter";
 
+import Legend from "../../resource/legend.png";
+
 const ContributionCalendar = ({ questions }) => {
   const values = {};
   const panelColors = ["#EBEDF0", "#9BE9A8", "#40C463", "#30A14E", "#216E39"];
@@ -25,19 +27,25 @@ const ContributionCalendar = ({ questions }) => {
   questions.forEach((question) => {
     if (values[question.createdAt]) {
       values[question.createdAt] += 1;
+      if (values[question.createdAt] >= 5) {
+        values[question.createdAt] = 4;
+      }
     } else {
       values[question.createdAt] = 1;
     }
   });
 
   return (
-    <Calendar
-      panelColors={panelColors}
-      until={until}
-      weekNames={weekNames}
-      monthNames={monthNames}
-      values={values}
-    />
+    <div className="ion-padding">
+      <Calendar
+        panelColors={panelColors}
+        until={until}
+        weekNames={weekNames}
+        monthNames={monthNames}
+        values={values}
+      />
+      <img src={Legend} alt="グラフの説明" className="ion-float-end" />
+    </div>
   );
 };
 
