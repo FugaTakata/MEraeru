@@ -89,7 +89,6 @@ const EditQuestion = () => {
               <IonButton
                 slot="end"
                 type="button"
-                style={{ margin: "auto 0" }}
                 disabled={!tag}
                 onClick={(e) => {
                   e.preventDefault();

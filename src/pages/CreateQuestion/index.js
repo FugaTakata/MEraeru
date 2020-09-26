@@ -83,7 +83,6 @@ const CreateQuestion = () => {
               <IonButton
                 type="button"
                 slot="end"
-                style={{ margin: "auto 0" }}
                 disabled={!tag}
                 onClick={(e) => {
                   e.preventDefault();
