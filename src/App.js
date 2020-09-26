@@ -11,8 +11,8 @@ import {
 import { IonReactRouter } from "@ionic/react-router";
 
 import Home from "./pages/Home";
-import AddQuestion from "./pages/AddQuestion";
-import Setting from "./pages/Setting";
+import CreateQuestion from "./pages/CreateQuestion";
+import EditQuestion from "./pages/EditQuestion";
 import Talk from "./pages/Talk";
 
 /* Core CSS required for Ionic components to work properly */
@@ -35,31 +35,28 @@ import "@ionic/react/css/display.css";
 import "./theme/variables.css";
 
 const App = () => {
-  useEffect(() => {}, []);
+  useEffect(() => {
+    // localStorage.clear();
+  }, []);
 
   return (
     <IonApp>
       <IonReactRouter>
-        <IonTabs>
-          <IonRouterOutlet>
-            <Route path="/home" component={Home} exact={true} />
-            <Route path="/add-question" component={AddQuestion} exact={true} />
-            <Route path="/setting" component={Setting} exact={true} />
-            <Route path="/talk:id" component={Talk} exact={true} />
-            <Route exact path="/" render={() => <Redirect to="/home" />} />
-          </IonRouterOutlet>
-          <IonTabBar slot="bottom">
-            <IonTabButton tab="home" href="/home">
-              <IonLabel>home</IonLabel>
-            </IonTabButton>
-            <IonTabButton tab="add-question" href="/add-question">
-              <IonLabel>add-question</IonLabel>
-            </IonTabButton>
-            <IonTabButton tab="setting" href="/setting">
-              <IonLabel>setting</IonLabel>
-            </IonTabButton>
-          </IonTabBar>
-        </IonTabs>
+        <IonRouterOutlet>
+          <Route path="/talk/:id" component={Talk} exact={true} />
+          <Route exact path="/" render={() => <Redirect to="/home" />} />
+          <Route
+            path="/create-question"
+            component={CreateQuestion}
+            exact={true}
+          />
+          <Route
+            path="/edit-question/:id"
+            component={EditQuestion}
+            exact={true}
+          />
+          <Route path="/home" component={Home} exact={true} />
+        </IonRouterOutlet>
       </IonReactRouter>
     </IonApp>
   );
