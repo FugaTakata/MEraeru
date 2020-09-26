@@ -44,7 +44,9 @@ const ContributionCalendar = ({ questions }) => {
         monthNames={monthNames}
         values={values}
       />
-      <img src={Legend} alt="グラフの説明" className="ion-float-end" />
+      <div style={{ textAlign: "right" }}>
+        <img src={Legend} alt="グラフの説明" />
+      </div>
     </div>
   );
 };
