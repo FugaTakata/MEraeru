@@ -57,14 +57,18 @@ const Talk = () => {
           <IonCardHeader>
             <IonCardTitle>質問</IonCardTitle>
           </IonCardHeader>
-          <IonCardContent>{state.question}</IonCardContent>
+          <IonCardContent style={{ whiteSpace: "pre-line" }}>
+            {state.question}
+          </IonCardContent>
         </IonCard>
         {state.answer && (
           <IonCard>
             <IonCardHeader>
               <IonCardTitle>回答</IonCardTitle>
             </IonCardHeader>
-            <IonCardContent>{state.answer}</IonCardContent>
+            <IonCardContent style={{ whiteSpace: "pre-line" }}>
+              {state.answer}
+            </IonCardContent>
           </IonCard>
         )}
         {state.tags.length >= 0 && (
