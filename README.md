@@ -1,6 +1,7 @@
 <!-- Please update value in the {}  -->
 
 <h1 align="center">MEraeru</h1>
+<a href='https://meraeru.f-maple.com/home'>link for the app</a>
 
 <!-- TABLE OF CONTENTS -->
 
