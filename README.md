@@ -16,6 +16,9 @@
 ```
 npm install
 npm start
+
+// if you have an ionic environment, you should use
+ionic serve
 ```
 
 ### Built With
